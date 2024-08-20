@@ -1,2 +1,2 @@
-# gogree
-Gree protocol commands realisation on Golang
+# GoGree
+GoGree is simple lib to controll Gree AC with WiFi by network
