@@ -1,4 +1,4 @@
-module gogree
+module github.com/shadowroot2/gogree
 
 go 1.22.6
 
