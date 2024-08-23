@@ -1,2 +1,2 @@
 # GoGree
-GoGree is simple lib to controll Gree AC with WiFi by network
+GoGree is simple lib to controll Gree AC over WiFi network
