@@ -1,4 +1,4 @@
-package gree
+package v1
 
 import "github.com/rs/zerolog"
 

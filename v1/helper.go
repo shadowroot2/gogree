@@ -1,4 +1,4 @@
-package gree
+package v1
 
 func ArrayFlip(m []string) map[string]int {
 	n := make(map[string]int, len(m))
