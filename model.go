@@ -1,4 +1,4 @@
-package v1
+package gogree
 
 import "github.com/rs/zerolog"
 
