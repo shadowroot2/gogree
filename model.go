@@ -35,8 +35,8 @@ type Request struct {
 	toPack *RequestPack
 }
 
-func NewRequest(t string) *Request {
-	return &Request{T: t}
+func NewRequest(t string) Request {
+	return Request{T: t}
 }
 
 type EncodedResponse struct {

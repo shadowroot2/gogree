@@ -13,7 +13,8 @@ import (
 	"time"
 )
 
-func New(logger *zerolog.Logger, host string, cid string, secKey string) *Gree {
+// NewGree create an object of Gree
+func NewGree(logger *zerolog.Logger, host string, cid string, secKey string) *Gree {
 	return &Gree{
 		debug:    false,
 		log:      logger,
@@ -55,22 +56,27 @@ func New(logger *zerolog.Logger, host string, cid string, secKey string) *Gree {
 	}
 }
 
+// SetDebug debug set
 func (g *Gree) SetDebug(debug bool) {
 	g.debug = debug
 }
 
+// SetHost host set
 func (g *Gree) SetHost(host string) {
 	g.host = host
 }
 
+// SetPort port set
 func (g *Gree) SetPort(port uint16) {
 	g.port = port
 }
 
+// SetCid cid set
 func (g *Gree) SetCid(cid string) {
 	g.cid = cid
 }
 
+// SetSecKey secKey set
 func (g *Gree) SetSecKey(secKey string) {
 	g.secKey = secKey
 }
@@ -545,7 +551,7 @@ func (g *Gree) SetHealth(enable bool) (map[string]any, error) {
 }
 
 // Sending request to AC
-func (g *Gree) sendRequest(request *Request, preformat bool) (*Response, error) {
+func (g *Gree) sendRequest(request Request, preformat bool) (*Response, error) {
 
 	// Preformat standard request
 	if preformat == true {
@@ -592,11 +598,7 @@ func (g *Gree) sendRequest(request *Request, preformat bool) (*Response, error) 
 	}
 
 	// Socket connection close on exit
-	defer func(logger *zerolog.Logger, c net.Conn) {
-		if err := c.Close(); err != nil {
-			logger.Fatal().Msg("Can not close connection: " + err.Error())
-		}
-	}(g.log, conn)
+	defer conn.Close()
 
 	// Try send
 	encodedResponse := &EncodedResponse{}
